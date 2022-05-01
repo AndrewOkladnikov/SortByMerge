@@ -96,7 +96,7 @@ public class IntFileReader implements ICustomFileReader {
 
 
     public List<String> readFromFile(int size) throws IOException {
-        List<String> setLoadedStringsArray = new ArrayList<String>();
+        //List<String> setLoadedStringsArray = new ArrayList<String>();
         readedStrings.clear();
 //        if (fileReader == null) {
 //            return null;
