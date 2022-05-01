@@ -1,6 +1,8 @@
 package com.company;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StringFileReader implements ICustomFileReader {
     private BufferedReader bufferedReader;
@@ -23,7 +25,7 @@ public class StringFileReader implements ICustomFileReader {
     }
 
     @Override
-    public String getNext() throws IOException {
+    public String getNextStringFromFile() throws IOException {
         var stringBuilder = new StringBuilder();
 
         boolean isFaulted = false;
@@ -54,8 +56,6 @@ public class StringFileReader implements ICustomFileReader {
             if (nextChar == '\n') {
                 break;
             }
-
-            // для работы с CRLF
             if (nextChar == 13) {
                 continue;
             }
@@ -65,7 +65,6 @@ public class StringFileReader implements ICustomFileReader {
 
         if (isFaulted)
         {
-            //System.out.println("DEBUG: IS FAULTED; FINISHED:" + isFinished);
             return null;
         }
 
@@ -76,5 +75,25 @@ public class StringFileReader implements ICustomFileReader {
         }
 
         return resultString;
+    }
+
+    @Override
+    public List<String> readFromFile(int i) throws IOException {
+        return null;
+    }
+
+    @Override
+    public void setIndex(int i) {
+
+    }
+
+    @Override
+    public int getIndex() {
+        return 0;
+    }
+
+    @Override
+    public ArrayList<String> getReadedStrings() {
+        return new ArrayList<>();
     }
 }
